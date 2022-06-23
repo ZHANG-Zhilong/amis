@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MobileView</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/amis/static/favicon_b3b0647.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />          
+    <link rel="stylesheet" href="/amis/pkg/npm_0022900.css" />
+    <link rel="stylesheet" title="ang" href="../scss/themes/ang.scss" />
+    <link
+      rel="stylesheet"
+      title="cxd"
+      disabled href="../scss/themes/cxd.scss" />
+    <link
+      rel="stylesheet"
+      title="dark"
+      disabled href="../scss/themes/dark.scss" />
+    <link
+      rel="stylesheet"
+      title="antd"
+      disabled href="../scss/themes/antd.scss" />
+    <link rel="stylesheet" href="../scss/helper.scss" />
+    <style>
+      .app-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+</head>
+
+  <body>
+    <div id="root" class="app-wrapper"></div>  
+<script src="/amis/pkg/npm_a40324a.js"></script>
+<script type="text/javascript" src="/amis/pkg/examples/mobile.html_map_05d9e56.js"></script>
+<script type="text/javascript">
+      const themes = [
+        {
+          label: '云舍',
+          value: 'cxd'
+        },
+        {
+          label: 'Ang',
+          value: 'ang'
+        },
+        {
+          label: 'Dark',
+          value: 'dark'
+        },
+        {
+          label: 'antd',
+          value: 'antd'
+        }
+      ];
+      // mobile 下先禁掉所有外链避免影响
+      document.querySelectorAll('link[title]').forEach(item => {
+        item.disabled = true;
+      });
+      let theme = localStorage.getItem('amis-theme') || 'cxd';
+      if (theme == 'default') {
+        theme = 'cxd';
+      }
+      document.querySelector(`link[title=${theme}]`).disabled = false;
+      if (theme === 'dark') {
+        document.querySelector('body').classList.add('dark');
+      }
+
+      amis.require(['5cd8f64'], function (app) {
+        app.bootstrap(document.getElementById('root'), {});
+      });
+    </script>
+</body>
+</html>
